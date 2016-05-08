@@ -1,0 +1,3 @@
+rootProject.name = 'YokohamaPM25React'
+
+include ':app'
