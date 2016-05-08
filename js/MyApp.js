@@ -47,6 +47,7 @@ export default class MyApp extends Component {
           renderRow={(rowData) =>
             <View>
               <Text>{rowData.date}</Text>
+              <Text>日平均: {rowData.average}</Text>
               <View style={styles.chartContainer}>
                 <RNChart style={styles.chart}
                  chartData={[{
