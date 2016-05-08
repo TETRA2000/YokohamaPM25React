@@ -5,8 +5,12 @@ import {
   Text,
   View,
   Picker,
+  ScrollView,
+  ListView,
 } from 'react-native';
 import DataSource from './DataSource'
+import PM25Data from  './PM25Data'
+import RNChart from 'react-native-chart';
 
 
 export default class MyApp extends Component {
@@ -14,10 +18,12 @@ export default class MyApp extends Component {
     super();
 
     this.dataSources = DataSource.getDataSources();
+    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state =  {
       // TODO save id
       // 鶴見区潮田交流プラザ測定局
       id: '101',
+      chartSource: ds.cloneWithRows([]),
     };
 
     this._reloadData(this.state.id);
@@ -25,10 +31,7 @@ export default class MyApp extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
+      <ScrollView style={styles.container}>
         <Picker
           selectedValue={this.state.id}
           onValueChange={(id) => {
@@ -39,7 +42,28 @@ export default class MyApp extends Component {
             return <Picker.Item key={dataSource.id} label={dataSource.name} value={dataSource.id}  />;
           })}
         </Picker>
-      </View>
+        <ListView
+          dataSource={this.state.chartSource}
+          renderRow={(rowData) =>
+            <View>
+              <Text>{rowData.date}</Text>
+              <View style={styles.chartContainer}>
+                <RNChart style={styles.chart}
+                 chartData={[{
+                      name: 'LineChart',
+                      type: 'line',
+                      color:'purple',
+                      widthPercent: 0.6,
+                      data: rowData.values,
+                    },
+                  ]}
+                 verticalGridStep={5}
+                 xLabels={xLabels}/>
+              </View>
+            </View>
+          }
+        />
+      </ScrollView>
     );
   }
 
@@ -50,9 +74,13 @@ export default class MyApp extends Component {
 
     // TODO
     fetch(dataSourceURL)
-      .then((csv) => {
-        console.log(csv);
-      })
+      .then((response) => response.text()
+        .then((src) => {
+          let pm25Data = new PM25Data(src);
+
+          let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+          this.setState({chartSource: ds.cloneWithRows(pm25Data.data)})
+        }))
       .catch((err) => {
         console.log(err);
       })
@@ -61,7 +89,9 @@ export default class MyApp extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20,
+    marginTop: 20,
+    marginRight: 5,
+    marginLeft: 5,
   },
   welcome: {
     fontSize: 20,
@@ -73,4 +103,22 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  chartContainer: {
+    height: 250,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  chart: {
+    position: 'absolute',
+    top: 16,
+    left: 4,
+    bottom: 4,
+    right: 16,
+  },
 });
+
+
+// FIXME
+const xLabels = ['1','3','5','7','9','11','13','15','17','19','21','23'];
