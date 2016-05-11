@@ -5,7 +5,6 @@ import {
   Text,
   View,
   Picker,
-  ScrollView,
   ListView,
 } from 'react-native';
 import DataSource from './DataSource'
@@ -31,7 +30,7 @@ export default class MyApp extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Picker
           selectedValue={this.state.id}
           onValueChange={(id) => {
@@ -43,9 +42,12 @@ export default class MyApp extends Component {
           })}
         </Picker>
         <ListView
+          enableEmptySections={true}
+          style={styles.chartList}
+          horizontal={true}
           dataSource={this.state.chartSource}
           renderRow={(rowData) =>
-            <View>
+            <View style={{flex: 1}}>
               <Text>{rowData.date}</Text>
               <Text>日平均: {rowData.average}</Text>
               <View style={styles.chartContainer}>
@@ -64,7 +66,7 @@ export default class MyApp extends Component {
             </View>
           }
         />
-      </ScrollView>
+      </View>
     );
   }
 
@@ -104,9 +106,12 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-  chartContainer: {
-    height: 250,
+  chartList: {
     flex: 1,
+  },
+  chartContainer: {
+    height: 185,
+    width: 250,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
