@@ -11,11 +11,14 @@ import {
 import DataSource from './DataSource'
 import PM25Data from  './PM25Data'
 import RNChart from 'react-native-chart';
+import Config from 'react-native-config'
+import GoogleAnalytics from 'react-native-google-analytics-bridge';
 
 
 export default class MyApp extends Component {
   constructor() {
     super();
+    GoogleAnalytics.setTrackerId(Config.TRACKER_ID);
 
     this.dataSources = DataSource.getDataSources();
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -27,6 +30,10 @@ export default class MyApp extends Component {
     };
 
     this._reloadData(this.state.id);
+  }
+
+  componentWillMount() {
+    GoogleAnalytics.trackScreenView('Home');
   }
 
   render() {
