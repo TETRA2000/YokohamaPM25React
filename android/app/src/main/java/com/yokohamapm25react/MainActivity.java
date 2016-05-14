@@ -1,6 +1,7 @@
 package com.yokohamapm25react;
 
 import com.facebook.react.ReactActivity;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -36,6 +37,7 @@ public class MainActivity extends ReactActivity {
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new ReactNativeConfigPackage(),
             new GoogleAnalyticsBridgePackage()
         );
     }
