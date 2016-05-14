@@ -24,6 +24,10 @@
 		5E4AC3198B2848F7A626578A /* libRNChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B9F8030D874297AD8EE5CD /* libRNChart.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		88440BFE95934D9FA687B1DE /* libRCTGoogleAnalyticsBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B72ABBD0BA94486B91162632 /* libRCTGoogleAnalyticsBridge.a */; };
+		A96344CD1CE7416500385D1C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96344CC1CE7416500385D1C /* CoreData.framework */; };
+		A96344CF1CE7416F00385D1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96344CE1CE7416F00385D1C /* SystemConfiguration.framework */; };
+		A96344D11CE7417900385D1C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A96344D01CE7417900385D1C /* libz.tbd */; };
+		A96344D31CE7418000385D1C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A96344D21CE7418000385D1C /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +149,10 @@
 		40B9F8030D874297AD8EE5CD /* libRNChart.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNChart.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		A96344CC1CE7416500385D1C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A96344CE1CE7416F00385D1C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A96344D01CE7417900385D1C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A96344D21CE7418000385D1C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		B72ABBD0BA94486B91162632 /* libRCTGoogleAnalyticsBridge.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTGoogleAnalyticsBridge.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +168,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96344D31CE7418000385D1C /* libsqlite3.0.tbd in Frameworks */,
+				A96344D11CE7417900385D1C /* libz.tbd in Frameworks */,
+				A96344CF1CE7416F00385D1C /* SystemConfiguration.framework in Frameworks */,
+				A96344CD1CE7416500385D1C /* CoreData.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -311,6 +323,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A96344D21CE7418000385D1C /* libsqlite3.0.tbd */,
+				A96344D01CE7417900385D1C /* libz.tbd */,
+				A96344CE1CE7416F00385D1C /* SystemConfiguration.framework */,
+				A96344CC1CE7416500385D1C /* CoreData.framework */,
 				13B07FAE1A68108700A75B9A /* YokohamaPM25React */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* YokohamaPM25ReactTests */,
