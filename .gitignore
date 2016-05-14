@@ -41,3 +41,6 @@ android/keystores/debug.keystore
 
 #Android Rlease Key
 android/app/my-release-key.keystore
+
+# react-native-config
+.env

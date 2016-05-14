@@ -8,6 +8,8 @@
   "dependencies": {
     "react": "^0.14.8",
     "react-native": "^0.25.1",
-    "react-native-chart": "^0.1.14"
+    "react-native-chart": "^0.1.14",
+    "react-native-config": "0.0.5",
+    "react-native-google-analytics-bridge": "^2.0.0"
   }
 }
