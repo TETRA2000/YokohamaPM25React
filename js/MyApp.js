@@ -32,11 +32,9 @@ export default class MyApp extends Component {
     this._reloadData(this.state.id);
   }
 
-  componentWillMount() {
-    GoogleAnalytics.trackScreenView('Home');
-  }
-
   render() {
+    GoogleAnalytics.trackScreenView('Home');
+    
     return (
       <ScrollView style={styles.container}>
         <Picker
